@@ -23,7 +23,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu /home/taarkik/.config/rofi/launchers/type-2/launcher.sh 
+set $menu exec $(dmenu_path | dmenu)
 
 
 include /etc/sway/config-vars.d/*
@@ -221,7 +221,6 @@ bar {
 }
 
 include /etc/sway/config.d/*
-exec wl-paste -t text --watch xsel store --no-persist
 exec foot
 # exec --no-startup-id swaymsg 'workspace 2; exec thorium-browser; workspace 1'
 # exec --no-startup-id swaymsg 'workspace 3; exec thorium-browser; workspace 1'
