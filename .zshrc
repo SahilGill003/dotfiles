@@ -123,9 +123,10 @@ maxfreq='/sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq'
 minfreq='/sys/devices/system/cpu/cpu*/cpufreq/scaling_min_freq'
 governor='/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
 
-# wifi issues
-fixwifi(){
-    sudo systemctl restart iwd
+# restart wifi
+refi(){
+  nmcli r wifi off
+  nmcli r wifi on
 }
 
 show(){
@@ -136,19 +137,15 @@ show(){
 }
 
 perfon(){
-  insertvalue performance governor
+  sh -c "echo performance | sudo tee ${governor}"
 }
 
 perfoff(){
-  insertvalue powersave governor
+  sh -c "echo powersave | sudo tee ${governor}"
 }
 
 shp(){
   show governor
-}
-
-addvalue(){
-    zsh -c "echo $1 | sudo tee -a ${(P)2}|${2}"
 }
 
 myfind() {

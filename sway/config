@@ -239,7 +239,9 @@ bindsym --locked XF86MonBrightnessUp exec sudo light -A 1
 bindsym XF86AudioLowerVolume exec pamixer -d 5 
 bindsym XF86AudioRaiseVolume exec pamixer -i 5 
 bindsym XF86AudioMute exec pamixer -t 
-bindsym XF86AudioPlay exec playerctl play-pause 
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause 
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Keymaps
 input type:keyboard {
